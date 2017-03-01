@@ -1,0 +1,28 @@
+<h2> Login</h2>
+<div class="form-group">
+  <label for="username">Username</label>
+  <input type="text" class="form-control" id="username"
+    required [placeholder]="placeholder.username"
+    [(ngModel)]="account.username" name="username" #username="ngModel" #usernameInput minlength="8">
+  <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+    Username is required and must be 8 chars long at least.
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="password">Password</label>
+  <a href='#' (click)="passwordInput.type='text'"
+    [hidden]="passwordInput.type=='text'">Show</a>
+  <a href='#' (click)="passwordInput.type='password'"
+    [hidden]="passwordInput.type=='password'">Hide</a>
+  <input type="text" class="form-control" id="password"
+    required [placeholder]="placeholder.password"
+    [(ngModel)]="account.password" name="password"
+    #password="ngModel" #passwordInput minlength="8">
+    <!-- pattern="[A-Z]"> -->
+  <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+    Password is required and must be 8 chars long at least.
+  </div>
+</div>
+
+<button class="btn btn-success" (click)="goToHome()"> home </button>
